@@ -53,6 +53,57 @@ class SLL {
             runner.next = new Node(val);
         }
     }
+
+
+//(Remove and return the first node in the list)
+    //EXTRA: Average (calculate the average of the list based on integer data)
+    
+    // Given a value, insert that value as a node at the front of your singly linked list
+    insertAtFront(val) {
+        if(this.isEmpty()){
+            this.head = new Node(val);
+        } else {
+            let newHead = new Node(val);
+            newHead.next = this.head;
+            this.head = newHead
+        }
+    }
+    
+    // Remove and return the head node from your list (remember this means we need a new head)
+    removeHead(){
+          this.head = this.head.next
+          return 
+    }
+    
+    // EXTRA: calculate the average of all the values in your list (ex: if you list contained the values 3, 5, 2, 7, 3, then your average should come out as 4)
+    average(){
+        if(this.isEmpty()){
+            console.log("Nothing to print");
+        } else {
+            var count = 0;
+            var max = 0;
+            var runner = this.head;
+            while(runner != null){
+                count++;
+                max = max + runner.data
+                runner = runner.next;
+            }
+            let average = max / count;
+            console.log(average)
+        }
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }
 
 var mySll = new SLL();
@@ -64,7 +115,10 @@ mySll.insertAtBack(8);
 mySll.insertAtBack(4);
 mySll.insertAtBack(9);
 mySll.insertAtBack(1);
+mySll.insertAtFront(11);
+mySll.removeHead();
 mySll.toArray();
+mySll.average();
 // console.log(mySll.isEmpty());
 // console.log(mySll);
 

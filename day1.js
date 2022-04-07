@@ -93,33 +93,96 @@ class SLL {
         }
     }
     
+    // Given a value, return true or false whether that value is in your list
+contains(val){
+    if(this.isEmpty()){
+        console.log("Nothing to print");
+    } else {
+        var runner = this.head;
+        while(runner != null){
+            if(runner.data == val){
+                return true
+            }
+            runner = runner.next;
+        }
+        return false
+    }
+}
+
+
+recursiveContains(val,runner = this.head){
+    if(this.isEmpty()){
+        console.log("Nothing to print");
+    }else{
+        if(runner.data == val){
+        return true
+        }else{
+            if(runner.next == null){
+                return false
+            }else{
+                return this.recursiveContains(val,runner = runner.next)
+            }
+        }
+    }
+}
+// If you didn't already come up with the solution recursively, try that now! Or, if you did solve it recursively, how might you do it iteratively? 
+
+// Remove and return the last value in your list
+removeBack(){
+        var runner = this.head;
+        while (runner.next.next != null) {
+            runner = runner.next;
+        }
+        runner.next = null
+        console.log(runner.data)
+    }
     
+
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    secondToLast(){
+        var runner = this.head;
+        while (runner.next.next != null) {
+            runner = runner.next;
+        }
+        return runner.data
+    }
+
+    // Given a value, remove that value from the list and return true or false whether it was removed
+    removeVal(val){
+        if(this.isEmpty()){
+            console.log("Nothing to print");
+        }else{
+            if(this.head.data == val){
+                this.removeHead()
+                return true
+            }
+            var runner = this.head;
+            while (runner) {
+                if(runner.next.data == val){
+                    runner.next = runner.next.next
+                    return true
+                }
+                
+                runner = runner.next;
+            }
+        }
+        return false
+    }
+
+
 }
 
 var mySll = new SLL();
 // mySll.toArray();
 // console.log(mySll.isEmpty());
 mySll.insertAtBack(3);
-mySll.insertAtBack(5);
+mySll.insertAtBack(4);
 mySll.insertAtBack(8);
 mySll.insertAtBack(4);
 mySll.insertAtBack(9);
 mySll.insertAtBack(1);
-mySll.insertAtFront(11);
-mySll.removeHead();
 mySll.toArray();
-mySll.average();
-// console.log(mySll.isEmpty());
-// console.log(mySll);
-
+// console.log(mySll.secondToLast());
+console.log(mySll.removeAllVal(4));
+mySll.toArray();
 var sll2 = new SLL();

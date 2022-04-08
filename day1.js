@@ -169,8 +169,33 @@ removeBack(){
         return false
     }
 
+// Given a different singly linked list, concatenate the values of that list onto the back of your own (ex: if your original list contained 1, 2, 3 and the given list contained 4, 5, 6, you should now have a list that contains the values 1, 2, 3, 4, 5, 6)
+concat(addList){
+            if(this.isEmpty()){
+                console.log("Nothing to print");
+            } else {
+                var runner = this.head;
+                while(runner.next != null){
+                    runner = runner.next;
+                }
+                runner.next = addList.head;
+            }
+}
 
 }
+
+
+
+
+
+
+var mySll2 = new SLL()
+mySll2.insertAtBack(10);
+mySll2.insertAtBack(4);
+mySll2.insertAtBack(5);
+mySll2.insertAtBack(9);
+
+
 
 var mySll = new SLL();
 // mySll.toArray();
@@ -181,8 +206,12 @@ mySll.insertAtBack(8);
 mySll.insertAtBack(4);
 mySll.insertAtBack(9);
 mySll.insertAtBack(1);
+
+
+
+mySll.concat(mySll2);
 mySll.toArray();
+mySll.moveMinToFront();
+mySll.toArray();
+
 // console.log(mySll.secondToLast());
-console.log(mySll.removeAllVal(4));
-mySll.toArray();
-var sll2 = new SLL();

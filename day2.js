@@ -150,22 +150,30 @@ toArrPreorder(node = this.root, vals = []) {
   }
 
 
+// Size
+// Return the total number of nodes in the tree
 
-// Depth First Search Preorder
-// Use your skills with BSTs to return an array that contains all the values in the tree using the concept of depth first search preorder. 
-// Preorder: [root][left][right] -> for each node of this tree, we will read the data of that node, then visit the left subtree and then the right subtree
-// Should get back [25, 15, 10, 4, 12, 22, 18, 24, 50, 35, 31, 44, 70, 66, 90]
+size(node = this.root){
+    if(node == null){
+      return 0;
+    }
+    return 1 + this.size(node.left) + this.size(node.right);
+  }
 
-// Depth First Search Inorder
-// Now use your skills to return an array that contains all the values using DFS Inorder. 
-// Inorder: [left][root][right] -> for each node, visit the left subtree, then read the data of the node, then visit the right subtree
-// Should get back [4, 10, 12, 15, 18, 22, 24, 25, 31, 35, 44, 50, 66, 70, 90]
+// Height
+// Return the number of nodes that make up the longest branch in a tree
+height(node = this.root){
+    if(!node){
+      return 0;
+    }
+    return 1 + Math.max(this.height(node.left), this.height(node.right));
+  }
 
-// Depth First Search Postorder
-// Finally, return an array that contains all the values using DFS Postorder.
-// Postorder: [left][right][root] -> visit left subtree, right subtree, then visit and read the data of the node
-// Should get back [4, 12, 10, 18, 24, 22, 15, 31, 44, 35, 66, 90, 70, 50, 25]
-
+// isFull
+// Return true or false whether every node has either 0 or 2 children
+isFull(){
+    // your code here
+}
 
 
 }
@@ -175,7 +183,6 @@ var nodeA = new Node(25)
 myBST.root = nodeA;
 myBST.root.left = new Node(15);
 myBST.root.left.left = new Node(10);
-myBST.root.left.left.left = new Node(4);
 myBST.root.left.right = new Node(22);
 myBST.root.left.right.left = new Node(18);
 myBST.root.left.right.right = new Node(24);
@@ -185,13 +192,13 @@ myBST.root.right = new Node(50);
 myBST.root.right.right = new Node(70);
 myBST.root.right.right.right = new Node(90);
 myBST.root.right.left = new Node(35);
-myBST.root.right.left.left = new Node(31);
-myBST.root.right.left.right = new Node(44);
-myBST.root.right.right.left = new Node(66);
 
 
 
 
+
+console.log(myBST.size());
+console.log(myBST.height())
 
 
 

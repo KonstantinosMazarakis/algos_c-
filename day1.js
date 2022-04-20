@@ -31,6 +31,7 @@ class SLL {
                 runner = runner.next;
             }
             console.log(arr);
+            return arr
         }
     }
     // Add a node to the list
@@ -182,6 +183,29 @@ concat(addList){
             }
 }
 
+
+revece(){
+    if(this.isEmpty()){
+        console.log("Nothing to print");
+        return
+    }else{
+        let array = this.toArray();
+        this.head = new Node(array[array.length-1]);
+        let runner = this.head
+        for(var i=array.length-2;i >= 0;i--){
+            runner.next = new Node(array[i])
+            runner = runner.next
+        }
+
+    }
+    this.toArray();
+}
+
+
+
+
+
+
 }
 
 
@@ -207,11 +231,7 @@ mySll.insertAtBack(4);
 mySll.insertAtBack(9);
 mySll.insertAtBack(1);
 
+mySll.revece();
 
-
-mySll.concat(mySll2);
-mySll.toArray();
-mySll.moveMinToFront();
-mySll.toArray();
 
 // console.log(mySll.secondToLast());
